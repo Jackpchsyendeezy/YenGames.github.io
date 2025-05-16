@@ -1,6 +1,5 @@
 import { useState } from "react";
 import type { Game } from "@shared/schema";
-import { openGameInBlankTab } from "@/lib/utils";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 interface GameModalProps {
@@ -11,7 +10,36 @@ interface GameModalProps {
 
 export default function GameModal({ isOpen, onClose, game }: GameModalProps) {
   const handleLaunchGame = () => {
-    openGameInBlankTab(game.gameUrl, game.title);
+    // Create a new blank tab
+    const win = window.open("about:blank");
+    
+    if (win) {
+      // Set up the blank document
+      win.document.body.style.margin = '0';
+      win.document.body.style.height = '100vh';
+      win.document.title = game.title;
+      
+      // Create an iframe
+      const iframe = win.document.createElement('iframe');
+      iframe.style.border = 'none';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.margin = '0';
+      iframe.src = game.gameUrl;
+      
+      // Add iframe to the document
+      win.document.body.appendChild(iframe);
+      
+      // Set up interval to check if window is closed
+      const interval = setInterval(() => {
+        if (win.closed) {
+          clearInterval(interval);
+        }
+      }, 500);
+    } else {
+      alert("Please allow popups for this site to play games");
+    }
+    
     onClose();
   };
 
@@ -28,13 +56,11 @@ export default function GameModal({ isOpen, onClose, game }: GameModalProps) {
         </DialogHeader>
         
         <div className="bg-gray-900 rounded-lg w-full aspect-video flex items-center justify-center mb-4">
-          <div className="text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-muted-foreground mb-2 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <p className="text-muted-foreground">Click "Launch Game" to start playing</p>
-          </div>
+          <img 
+            src={game.thumbnailUrl} 
+            alt={game.title}
+            className="h-full object-contain rounded-lg"
+          />
         </div>
         
         <div className="flex justify-between">
@@ -44,7 +70,7 @@ export default function GameModal({ isOpen, onClose, game }: GameModalProps) {
           >
             Launch Game 
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline ml-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </button>
           
