@@ -7,12 +7,22 @@ async function throwIfResNotOk(res: Response) {
   }
 }
 
+const getApiUrl = (path: string) => {
+  // In production, use Netlify functions path
+  if (import.meta.env.PROD) {
+    return `/.netlify/functions${path.replace('/api/', '/')}`;
+  }
+  // In development, use the direct API path
+  return path;
+};
+
 export async function apiRequest(
   method: string,
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  const res = await fetch(url, {
+  const apiUrl = getApiUrl(url);
+  const res = await fetch(apiUrl, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
