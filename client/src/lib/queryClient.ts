@@ -8,11 +8,10 @@ async function throwIfResNotOk(res: Response) {
 }
 
 const getApiUrl = (path: string) => {
-  // In production, use Netlify functions path
   if (import.meta.env.PROD) {
-    return `/.netlify/functions${path.replace('/api/', '/')}`;
+    const pathWithoutApi = path.replace('/api/', '/');
+    return `/.netlify/functions${pathWithoutApi}`;
   }
-  // In development, use the direct API path
   return path;
 };
 
