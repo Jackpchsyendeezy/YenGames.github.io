@@ -1,0 +1,145 @@
+12:09:50 AM: Waiting for other deploys from your team to complete. Check the queue: https://app.netlify.com/teams/jackpchsyendeezy/builds
+12:10:59 AM: build-image version: 2be63b793c62ef8e32317f27dbcfe59c48c048e5 (noble)
+12:10:59 AM: buildbot version: 375c963723edcefc483ea90210369e89c7778889
+12:10:59 AM: Building without cache
+12:10:59 AM: Starting to prepare the repo for build
+12:10:59 AM: No cached dependencies found. Cloning fresh repo
+12:10:59 AM: git clone --filter=blob:none https://github.com/Jackpchsyendeezy/YenGames.github.io
+12:10:59 AM: Preparing Git Reference refs/heads/main
+12:11:01 AM: Custom publish path detected. Proceeding with the specified path: 'dist'
+12:11:01 AM: Custom functions path detected. Proceeding with the specified path: 'netlify/functions'
+12:11:02 AM: Starting to install dependencies
+12:11:02 AM: Python version set to 3.13.3
+12:11:02 AM: Ruby version set to 3.4.3
+12:11:02 AM: Go version set to 1.24.3
+12:11:02 AM: Using PHP version 8.3
+12:11:03 AM: Downloading and installing node v22.15.1...
+12:11:04 AM: Downloading https://nodejs.org/dist/v22.15.1/node-v22.15.1-linux-x64.tar.xz...
+12:11:04 AM: Computing checksum with sha256sum
+12:11:04 AM: Checksums matched!
+12:11:07 AM: Now using node v22.15.1 (npm v10.9.2)
+12:11:07 AM: Enabling Node.js Corepack
+12:11:07 AM: Started restoring cached build plugins
+12:11:07 AM: Finished restoring cached build plugins
+12:11:07 AM: Started restoring cached corepack dependencies
+12:11:07 AM: Finished restoring cached corepack dependencies
+12:11:07 AM: No npm workspaces detected
+12:11:07 AM: Started restoring cached node modules
+12:11:07 AM: Finished restoring cached node modules
+12:11:07 AM: Installing npm packages using npm version 10.9.2
+12:11:11 AM: npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+12:11:11 AM: npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+12:11:23 AM: Skipping form detection
+12:11:23 AM: Post processing - header rules
+12:11:23 AM: Post processing - redirect rules
+12:11:23 AM: Post processing done
+12:11:23 AM: Section completed: postprocessing
+12:11:16 AM: added 481 packages in 9s
+12:11:16 AM: npm packages installed
+12:11:16 AM: Successfully installed dependencies
+12:11:16 AM: Starting build script
+12:11:17 AM: Detected 1 framework(s)
+12:11:17 AM: "vite" at version "5.4.14"
+12:11:17 AM: Section completed: initializing
+12:11:19 AM: ​
+12:11:19 AM: Netlify Build                                                 
+12:11:19 AM: ────────────────────────────────────────────────────────────────
+12:11:19 AM: ​
+12:11:19 AM: ❯ Version
+12:11:19 AM:   @netlify/build 33.0.0
+12:11:19 AM: ​
+12:11:19 AM: ❯ Flags
+12:11:19 AM:   accountId: 6826cf867a782fbceaa3a235
+12:11:19 AM:   baseRelDir: true
+12:11:19 AM:   buildId: 6826d6ae5d49d1b50726bc0f
+12:11:19 AM:   deployId: 6826d6ae5d49d1b50726bc11
+12:11:19 AM: ​
+12:11:19 AM: ❯ Current directory
+12:11:19 AM:   /opt/build/repo
+12:11:19 AM: ​
+12:11:19 AM: ❯ Config file
+12:11:19 AM:   /opt/build/repo/netlify.toml
+12:11:19 AM: ​
+12:11:19 AM: ❯ Context
+12:11:19 AM:   production
+12:11:19 AM: ​
+12:11:19 AM: build.command from netlify.toml                               
+12:11:19 AM: ────────────────────────────────────────────────────────────────
+12:11:19 AM: ​
+12:11:19 AM: $ npm run build
+12:11:19 AM: > rest-express@1.0.0 build
+12:11:19 AM: > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+12:11:20 AM: vite v5.4.14 building for production...
+12:11:20 AM: transforming...
+12:11:20 AM: Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+12:11:20 AM:   npx update-browserslist-db@latest
+12:11:20 AM:   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+12:11:23 AM: ✓ 1717 modules transformed.
+12:11:23 AM: rendering chunks...
+12:11:23 AM: computing gzip size...
+12:11:23 AM: dist/public/index.html                   1.43 kB │ gzip:   0.67 kB
+12:11:23 AM: dist/public/assets/index-OZDZ9mMU.css   65.84 kB │ gzip:  11.49 kB
+12:11:23 AM: dist/public/assets/index-hbZ932ez.js   338.56 kB │ gzip: 106.40 kB
+12:11:23 AM: ✓ built in 3.28s
+12:11:23 AM:   dist/index.js  16.8kb
+12:11:23 AM: ⚡ Done in 3ms
+12:11:23 AM: ​
+12:11:23 AM: (build.command completed in 3.6s)
+12:11:23 AM: ​
+12:11:23 AM: Functions bundling                                            
+12:11:23 AM: ────────────────────────────────────────────────────────────────
+12:11:23 AM: ​
+12:11:23 AM: Packaging Functions from netlify/functions directory:
+12:11:23 AM:  - categories.ts
+12:11:23 AM:  - featured-games.ts
+12:11:23 AM:  - games.ts
+12:11:23 AM:  - new-games.ts
+12:11:23 AM:  - popular-games.ts
+12:11:23 AM: ​
+12:11:23 AM: ​
+12:11:23 AM: (Functions bundling completed in 126ms)
+12:11:23 AM: ​
+12:11:23 AM: Deploy site                                                   
+12:11:23 AM: ────────────────────────────────────────────────────────────────
+12:11:23 AM: ​
+12:11:23 AM: Starting to deploy site from 'dist'
+12:11:23 AM: Calculating files to upload
+12:11:23 AM: 0 new file(s) to upload
+12:11:23 AM: 0 new function(s) to upload
+12:11:23 AM: Section completed: deploying
+12:11:23 AM: Site deploy was successfully initiated
+12:11:23 AM: ​
+12:11:23 AM: (Deploy site completed in 341ms)
+12:11:23 AM: ​
+12:11:23 AM: Netlify Build Complete                                        
+12:11:23 AM: ────────────────────────────────────────────────────────────────
+12:11:23 AM: ​
+12:11:23 AM: (Netlify Build completed in 4.2s)
+12:11:24 AM: Caching artifacts
+12:11:24 AM: Started saving node modules
+12:11:24 AM: Finished saving node modules
+12:11:24 AM: Started saving build plugins
+12:11:24 AM: Finished saving build plugins
+12:11:24 AM: Started saving go cache
+12:11:26 AM: Finished saving go cache
+12:11:26 AM: Started saving python cache
+12:11:26 AM: Finished saving python cache
+12:11:26 AM: Started saving ruby cache
+12:11:23 AM: Starting post processing
+12:11:24 AM: Site is live ✨
+12:11:29 AM: Finished saving ruby cache
+12:11:29 AM: Started saving corepack cache
+12:11:29 AM: Finished saving corepack cache
+12:11:29 AM: Started saving emacs cask dependencies
+12:11:29 AM: Finished saving emacs cask dependencies
+12:11:29 AM: Started saving maven dependencies
+12:11:29 AM: Finished saving maven dependencies
+12:11:29 AM: Started saving boot dependencies
+12:11:29 AM: Finished saving boot dependencies
+12:11:29 AM: Started saving rust rustup cache
+12:11:29 AM: Finished saving rust rustup cache
+12:11:29 AM: Build script success
+12:11:29 AM: Section completed: building
+12:11:33 AM: Uploading Cache of size 361.0MB
+12:11:34 AM: Section completed: cleanup
+12:11:34 AM: Finished processing build request in 34.907s
