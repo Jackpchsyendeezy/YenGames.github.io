@@ -53,85 +53,25 @@ export class MemStorage implements IStorage {
       "Sports", 
       "Strategy", 
       "Racing",
-      "Horror",
-      "Multiplayer",
-      "Simulation",
-      "Idle"
+      "Tower Defense",
+      "Shooter",
+      "Classic",
+      "Flash"
     ];
     
     defaultCategories.forEach(categoryName => {
       this.createCategory({ name: categoryName });
     });
     
-    // Add real games from various sources including fizzerz.com and GitHub WebGL games
+    // Add real games including classic Flash games that work with Ruffle
     const defaultGames: InsertGame[] = [
       {
-        title: "Granny",
-        description: "Escape from Granny's creepy house in this tense horror game. Avoid the terrifying granny while solving puzzles and finding keys to unlock the exit before it's too late!",
-        thumbnailUrl: "https://img.gamedistribution.com/6c50d4fa9d5845f7bd5504a48369e818-512x384.jpeg",
-        gameUrl: "https://fizzerz.com/play/granny/",
-        category: "Horror",
+        title: "Bloons Tower Defense 5",
+        description: "Strategic tower defense game where you deploy monkey towers to pop balloons before they escape. With numerous tower types, upgrades, and special abilities, this classic remains a fan favorite.",
+        thumbnailUrl: "https://play-lh.googleusercontent.com/YU2S8MXZ-Hzut_SnXLWzFRsD-5xo1kxN9xjNmYNvJIQqcwJ1HNPe_cEj1Sk9MgQ-FQ=w240-h480-rw",
+        gameUrl: "https://archive.org/download/armorgames/btd5.swf",
+        category: "Tower Defense",
         isFeatured: true,
-        popular: true,
-        isNew: false
-      },
-      {
-        title: "2048",
-        description: "Combine matching number tiles to reach the elusive 2048 tile in this addictive puzzle game. Use strategy and planning to achieve high scores and master the grid.",
-        thumbnailUrl: "https://cdn.jsdelivr.net/gh/omswe/2048/meta/apple-touch-icon.png",
-        gameUrl: "https://fizzerz.com/play/2048/",
-        category: "Puzzle",
-        isFeatured: true,
-        popular: true,
-        isNew: false
-      },
-      {
-        title: "Among Us",
-        description: "Work together as crewmates to complete tasks or secretly sabotage as the impostor in this popular multiplayer deduction game. Trust no one!",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec=w240-h480-rw",
-        gameUrl: "https://fizzerz.com/play/among-us-online/",
-        category: "Multiplayer",
-        isFeatured: true,
-        popular: true,
-        isNew: false
-      },
-      {
-        title: "Backrooms",
-        description: "Explore the endless, uncanny yellow rooms of the Backrooms in this eerie horror game. Try to escape this liminal space while avoiding mysterious entities.",
-        thumbnailUrl: "https://img.gamepix.com/games/the-backrooms/cover/the-backrooms.png?width=400&height=400",
-        gameUrl: "https://fizzerz.com/play/backrooms/",
-        category: "Horror",
-        isFeatured: false,
-        popular: true,
-        isNew: false
-      },
-      {
-        title: "BitLife",
-        description: "Live a virtual life from birth to death, making decisions that affect your character's happiness, health, wealth, and relationships in this life simulation game.",
-        thumbnailUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/53/a2/d0/53a2d095-40b7-a165-7b6b-715d574bb82f/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
-        gameUrl: "https://fizzerz.com/play/bitlife/",
-        category: "Simulation",
-        isFeatured: false,
-        popular: true,
-        isNew: false
-      },
-      {
-        title: "Crossy Road",
-        description: "Help various characters cross busy roads, rivers and train tracks in this modern take on the classic arcade game. Hop and dodge your way to a high score!",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/Jvmj7YfV0d3EBQVxYPzUc7x_Wc5K6nX2yYr2Cy7n0lL9zCl3mNFR_iYMdNHxMZ6SOQ=w240-h480-rw",
-        gameUrl: "https://fizzerz.com/play/crossy-road/",
-        category: "Arcade",
-        isFeatured: false,
-        popular: true,
-        isNew: false
-      },
-      {
-        title: "Five Nights at Freddy's",
-        description: "Survive five nights as a security guard at Freddy Fazbear's Pizza, where animatronic characters come to life at night. Monitor security cameras and conserve power to stay alive.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/OXLlQKKjrRRgH2Y5JHXsYZ6FYkZqC6P_HzEGKVF8Bv_zw0_L4e5Qel2BZzNbOF5BT7Q=w240-h480-rw",
-        gameUrl: "https://fizzerz.com/play/fnaf/",
-        category: "Horror",
-        isFeatured: false,
         popular: true,
         isNew: false
       },
@@ -139,69 +79,138 @@ export class MemStorage implements IStorage {
         title: "Happy Wheels",
         description: "Navigate through deadly obstacle courses with ragdoll physics in this cult classic game. Choose from various characters with unique vehicles and try to reach the finish line.",
         thumbnailUrl: "https://play-lh.googleusercontent.com/SChpD4y61a3Ne6QCH8J-pLcB1D9GTfKI168lGzP8PgwL96M1zMmLQVzY86U7CExXRA=w240-h480-rw",
-        gameUrl: "https://fizzerz.com/play/happy-wheels/",
+        gameUrl: "https://github.com/LeakedAZ/Ruffle-Happy-Wheels/raw/main/happywheels.swf",
         category: "Action",
+        isFeatured: true,
+        popular: true,
+        isNew: false
+      },
+      {
+        title: "Super Mario 63",
+        description: "Fan-made Flash game inspired by Super Mario 64 and Super Mario Sunshine. Explore various levels, collect stars, and use FLUDD abilities in this beloved platformer.",
+        thumbnailUrl: "https://archive.org/download/sm63gameart/sm63.jpg",
+        gameUrl: "https://archive.org/download/armorgames/super_mario_63.swf",
+        category: "Adventure",
+        isFeatured: true,
+        popular: true,
+        isNew: false
+      },
+      {
+        title: "The Impossible Quiz",
+        description: "Test your wits with this notoriously difficult quiz game full of trick questions, puns, and impossible logic. Think outside the box to progress through increasingly challenging levels.",
+        thumbnailUrl: "https://static.wikia.nocookie.net/impossible-quiz/images/a/a8/Impossible_Quiz_Logo.png/revision/latest?cb=20200311153225",
+        gameUrl: "https://archive.org/download/armorgames/the-impossible-quiz.swf",
+        category: "Puzzle",
         isFeatured: false,
         popular: true,
         isNew: false
       },
       {
-        title: "Idle Breakout",
-        description: "Break blocks automatically in this addictive idle game. Upgrade your balls, buy special abilities, and watch your destruction power grow over time.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/tsgza05Psci6cF3xI_sundSy5uLKJbTzTl9BXs42XVLubYF0ICi_tUtJg_NvnXA4Lno=s48-rw",
-        gameUrl: "https://fizzerz.com/play/idle-breakout/",
-        category: "Idle",
+        title: "Duck Life 3",
+        description: "Train your duck in various skills like running, flying, swimming, and climbing to compete in races and tournaments. Upgrade your duck's abilities and customize its appearance.",
+        thumbnailUrl: "https://play-lh.googleusercontent.com/uuFiwN9LJhFhVhFCF0nADTHUAnpwIwufEHpkBgBr81qr6MiHrY1FqObJn-5XMV9Avfg",
+        gameUrl: "https://archive.org/download/armorgames/duck-life-3.swf",
+        category: "Simulation",
         isFeatured: false,
         popular: true,
-        isNew: true
+        isNew: false
       },
       {
-        title: "Jetpack Joyride",
-        description: "Fly through a laboratory dodging obstacles and collecting coins in this endless runner. Equip different jetpacks, gadgets, and vehicles to improve your runs.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/Pl2nmu5U8kL-XQM10G8x-oL816i-aDqYjA4Q8iQJ4HvRdNUNvq1MgfN0JM3Xvt0_A5s=w240-h480-rw",
-        gameUrl: "https://fizzerz.com/play/jetpack-joyride/",
+        title: "Strike Force Heroes",
+        description: "Fast-paced side-scrolling shooter with multiple character classes, weapons, and campaign missions. Customize your loadout and battle through challenging levels.",
+        thumbnailUrl: "https://i.ytimg.com/vi/cFwrp7y49Kk/maxresdefault.jpg",
+        gameUrl: "https://archive.org/download/armorgames/strike-force-heroes.swf",
+        category: "Shooter",
+        isFeatured: false,
+        popular: true,
+        isNew: false
+      },
+      {
+        title: "Raze 3",
+        description: "Science fiction shooter featuring an alien invasion storyline. Choose your character, upgrade weapons, and battle through campaign mode or against friends in multiplayer.",
+        thumbnailUrl: "https://www.gamesgames.com/games/thumbs/13/25913.jpg",
+        gameUrl: "https://archive.org/download/armorgames/raze-3.swf",
+        category: "Shooter",
+        isFeatured: false,
+        popular: true,
+        isNew: false
+      },
+      {
+        title: "Age of War",
+        description: "Strategy game where you evolve through different ages of history, from prehistoric to future. Defend your base, create units, and use special abilities to defeat your opponent.",
+        thumbnailUrl: "https://upload.wikimedia.org/wikipedia/ru/4/41/Age_of_War_logo.jpg",
+        gameUrl: "https://archive.org/download/armorgames/age-of-war.swf",
+        category: "Strategy",
+        isFeatured: false,
+        popular: true,
+        isNew: false
+      },
+      {
+        title: "Run 2",
+        description: "Navigate through space in this parkour-style running game. Choose between running and skating modes as you jump across gaps and avoid falling into the void.",
+        thumbnailUrl: "https://play-lh.googleusercontent.com/iVCajnrRKEgtLPsE0-txQQDTUUoBiVAFIVw6HgLvjJ4Y8zAPHUNgR-FWBYJstGZakTA4",
+        gameUrl: "https://archive.org/download/armorgames/run-2.swf",
+        category: "Arcade",
+        isFeatured: false,
+        popular: true,
+        isNew: false
+      },
+      {
+        title: "Learn to Fly 2",
+        description: "Help a penguin achieve his dream of flight by launching him from a ramp and upgrading his equipment. Earn money through stunts and distance to buy better gear.",
+        thumbnailUrl: "https://i.ytimg.com/vi/YP2hLg2oiZc/maxresdefault.jpg",
+        gameUrl: "https://archive.org/download/armorgames/learn-to-fly-2.swf",
         category: "Arcade",
         isFeatured: true,
         popular: true,
         isNew: false
       },
       {
-        title: "Retro Bowl",
-        description: "Manage your football team to glory in this retro-style American football game. Handle player morale, upgrade your roster, and lead your team to the championship.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/WRM5Y1xZmzcCP1YtO5zl6G2g7CU5c5ZfjX4UVrgi1bpNgkfy-wuB-bQx3kkeRfaGYQ=w240-h480-rw",
-        gameUrl: "https://fizzerz.com/play/retro-bowl/",
-        category: "Sports",
+        title: "Kingdom Rush",
+        description: "Premium tower defense game with fantasy elements. Build towers, train troops, and use special abilities to defend your kingdom against waves of enemies.",
+        thumbnailUrl: "https://play-lh.googleusercontent.com/H8_tpa1OX9LEutKRvflFzJ9_ZCu59lc8qK5eXxbYgQNgm-nqFLLZxP1LM89THt09Wbk4",
+        gameUrl: "https://archive.org/download/armorgames/kingdom-rush.swf",
+        category: "Tower Defense",
+        isFeatured: true,
+        popular: true,
+        isNew: false
+      },
+      {
+        title: "Papa's Pizzeria",
+        description: "Time management cooking game where you run a pizza restaurant. Take orders, prepare pizzas with the right toppings, bake them properly, and serve them to customers.",
+        thumbnailUrl: "https://flipline-studios.fandom.com/wiki/File:Papa%27s_Pizzeria_HD_icon_on_the_homepage.png",
+        gameUrl: "https://archive.org/download/armorgames/papas-pizzeria.swf",
+        category: "Simulation",
         isFeatured: false,
         popular: true,
         isNew: true
       },
-      // WebGL Games from GitHub
       {
-        title: "Flappy Bird",
-        description: "A popular side-scroller game where you navigate a bird through pipes by tapping to flap its wings. Simple yet challenging gameplay that's incredibly addictive!",
-        thumbnailUrl: "https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png",
-        gameUrl: "https://uralozden.github.io/flappybirdgl/",
-        category: "Arcade",
+        title: "Gun Mayhem 2",
+        description: "Fast-paced platformer shooter where you battle against friends or AI opponents. Knock enemies off the stage using various weapons and power-ups.",
+        thumbnailUrl: "https://static.wikia.nocookie.net/gun-mayhem/images/8/8a/Gunmayhem2icon.png/revision/latest?cb=20200425190741",
+        gameUrl: "https://archive.org/download/armorgames/gun-mayhem-2.swf",
+        category: "Action",
         isFeatured: false,
         popular: true,
         isNew: false
       },
       {
-        title: "Hextris",
-        description: "An addictive puzzle game inspired by Tetris, with hexagonal blocks that rotate around a hexagon. Match colors to clear blocks and earn points!",
-        thumbnailUrl: "https://hextris.io/images/twitter-opengraph.png",
-        gameUrl: "https://hextris.io/",
-        category: "Puzzle",
+        title: "Tank Trouble 2",
+        description: "Multiplayer tank battle game where you navigate mazes and shoot at opponents. Features power-ups and various game modes for competitive play.",
+        thumbnailUrl: "https://play-lh.googleusercontent.com/AdD7Lq9iK561R1jKqL1aBZfm42j9Wl3BVczVLfXdyGEGZDTyf4Y0j1yU3cU46_mUvX4",
+        gameUrl: "https://archive.org/download/armorgames/tank-trouble-2.swf",
+        category: "Action",
         isFeatured: false,
         popular: true,
-        isNew: true
+        isNew: false
       },
       {
         title: "Pacman",
         description: "The classic arcade game where you navigate Pacman through a maze, eating dots while avoiding ghosts. Eat power pellets to turn the tables on the ghosts!",
         thumbnailUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Pac-Man_2d.svg/800px-Pac-Man_2d.svg.png",
         gameUrl: "https://fredericjacobs.github.io/pacman/",
-        category: "Arcade",
+        category: "Classic",
         isFeatured: false,
         popular: true,
         isNew: false
