@@ -247,7 +247,10 @@ export class MemStorage implements IStorage {
     const game: Game = { 
       ...insertGame, 
       id, 
-      createdAt: now
+      createdAt: now,
+      isFeatured: insertGame.isFeatured || false,
+      popular: insertGame.popular || false,
+      isNew: insertGame.isNew || false
     };
     this.gamesMap.set(id, game);
     return game;

@@ -4,8 +4,18 @@ import { storage } from "./storage";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Set up API routes with /api prefix
-  
+  // API endpoints that don't use `:id` params should be defined first
+
+  // Get all categories
+  app.get("/api/categories", async (req, res) => {
+    try {
+      const categories = await storage.getAllCategories();
+      res.json(categories);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch categories" });
+    }
+  });
+
   // Get all games
   app.get("/api/games", async (req, res) => {
     try {
@@ -13,6 +23,62 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(games);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch games" });
+    }
+  });
+  
+  // Get featured games (specific endpoint)
+  app.get("/api/featured-games", async (req, res) => {
+    try {
+      const featuredGames = await storage.getFeaturedGames();
+      res.json(featuredGames);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch featured games" });
+    }
+  });
+
+  // Get popular games (specific endpoint)
+  app.get("/api/popular-games", async (req, res) => {
+    try {
+      const popularGames = await storage.getPopularGames();
+      res.json(popularGames);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch popular games" });
+    }
+  });
+
+  // Get new games (specific endpoint)
+  app.get("/api/new-games", async (req, res) => {
+    try {
+      const newGames = await storage.getNewGames();
+      res.json(newGames);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch new games" });
+    }
+  });
+  
+  // Search games (moved to different endpoint)
+  app.get("/api/search-games", async (req, res) => {
+    try {
+      const query = req.query.q as string;
+      if (!query) {
+        return res.status(400).json({ message: "Search query is required" });
+      }
+
+      const games = await storage.searchGames(query);
+      res.json(games);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to search games" });
+    }
+  });
+  
+  // Get games by category (specific endpoint)
+  app.get("/api/category-games/:category", async (req, res) => {
+    try {
+      const category = req.params.category;
+      const games = await storage.getGamesByCategory(category);
+      res.json(games);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch games by category" });
     }
   });
 
@@ -32,72 +98,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(game);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch game" });
-    }
-  });
-
-  // Get featured games
-  app.get("/api/games/featured", async (req, res) => {
-    try {
-      const featuredGames = await storage.getFeaturedGames();
-      res.json(featuredGames);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch featured games" });
-    }
-  });
-
-  // Get popular games
-  app.get("/api/games/popular", async (req, res) => {
-    try {
-      const popularGames = await storage.getPopularGames();
-      res.json(popularGames);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch popular games" });
-    }
-  });
-
-  // Get new games
-  app.get("/api/games/new", async (req, res) => {
-    try {
-      const newGames = await storage.getNewGames();
-      res.json(newGames);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch new games" });
-    }
-  });
-
-  // Get games by category
-  app.get("/api/games/category/:category", async (req, res) => {
-    try {
-      const category = req.params.category;
-      const games = await storage.getGamesByCategory(category);
-      res.json(games);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch games by category" });
-    }
-  });
-
-  // Search games
-  app.get("/api/games/search", async (req, res) => {
-    try {
-      const query = req.query.q as string;
-      if (!query) {
-        return res.status(400).json({ message: "Search query is required" });
-      }
-
-      const games = await storage.searchGames(query);
-      res.json(games);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to search games" });
-    }
-  });
-
-  // Get all categories
-  app.get("/api/categories", async (req, res) => {
-    try {
-      const categories = await storage.getAllCategories();
-      res.json(categories);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch categories" });
     }
   });
 

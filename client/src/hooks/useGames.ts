@@ -15,32 +15,32 @@ export function useGame(id: number) {
 
 export function useFeaturedGames() {
   return useQuery<Game[]>({
-    queryKey: ["/api/games/featured"],
+    queryKey: ["/api/featured-games"],
   });
 }
 
 export function usePopularGames() {
   return useQuery<Game[]>({
-    queryKey: ["/api/games/popular"],
+    queryKey: ["/api/popular-games"],
   });
 }
 
 export function useNewGames() {
   return useQuery<Game[]>({
-    queryKey: ["/api/games/new"],
+    queryKey: ["/api/new-games"],
   });
 }
 
 export function useGamesByCategory(category: string) {
   return useQuery<Game[]>({
-    queryKey: [`/api/games/category/${category}`],
+    queryKey: [`/api/category-games/${category}`],
     enabled: category !== "All Games", // Only fetch if not "All Games"
   });
 }
 
 export function useSearchGames(query: string) {
   return useQuery<Game[]>({
-    queryKey: [`/api/games/search?q=${query}`],
+    queryKey: [`/api/search-games?q=${query}`],
     enabled: query.length > 0, // Only run query if there's a search term
   });
 }
