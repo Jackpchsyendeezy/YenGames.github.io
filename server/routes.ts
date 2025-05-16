@@ -6,8 +6,8 @@ import path from "path";
 import express from "express";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Serve static game files (SWF files)
-  app.use('/games', express.static(path.join(process.cwd(), 'public', 'games')));
+  // Serve static files from public directory
+  app.use(express.static(path.join(process.cwd(), 'public')));
   
   // API endpoints that don't use `:id` params should be defined first
 

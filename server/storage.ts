@@ -100,8 +100,8 @@ export class MemStorage implements IStorage {
       {
         title: "Super Mario Flash 2",
         description: "Play as Mario or Luigi in this fan-made Flash game that recreates the classic Super Mario Bros experience. Jump, collect coins, and defeat enemies in this beloved platformer.",
-        thumbnailUrl: "https://i.ytimg.com/vi/-hbcB-JPVGs/maxresdefault.jpg",
-        gameUrl: "https://supermarioflash.io/",
+        thumbnailUrl: "/images/thumbnails/mario-flash.jpg",
+        gameUrl: "/games/swf/super-mario-flash.swf",
         category: "Platform",
         isFeatured: true,
         popular: true,
@@ -110,8 +110,8 @@ export class MemStorage implements IStorage {
       {
         title: "The Impossible Quiz",
         description: "Test your wits with this notoriously difficult quiz game full of trick questions, puns, and impossible logic. Think outside the box to progress through increasingly challenging levels.",
-        thumbnailUrl: "https://i.ytimg.com/vi/BgYBx2PZJiA/maxresdefault.jpg",
-        gameUrl: "https://impossible-quiz.io/",
+        thumbnailUrl: "/images/thumbnails/impossible-quiz.jpg",
+        gameUrl: "/games/swf/impossible-quiz.swf",
         category: "Puzzle",
         isFeatured: false,
         popular: true,
@@ -120,7 +120,7 @@ export class MemStorage implements IStorage {
       {
         title: "Slope",
         description: "Guide a ball down a randomized slope in this fast-paced endless runner. Test your reflexes as you navigate increasingly difficult terrain and avoid obstacles.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/uJn2i9h7KxYQarC_c3K4qH6OVBi-XTjQSg5LV9G4DmG4AqKvmGZ3RvLZh_31RtQV4id5=w240-h480-rw",
+        thumbnailUrl: "/images/thumbnails/slope.jpg",
         gameUrl: "https://slope-game.io/",
         category: "Arcade",
         isFeatured: false,
@@ -130,7 +130,7 @@ export class MemStorage implements IStorage {
       {
         title: "Vex 4",
         description: "Navigate through challenging obstacle courses filled with deadly traps in this precision platformer. Time your jumps perfectly to avoid spikes, saws, and other hazards.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/PLNojxLItYyEOhRCpQDSXizJY4q-1gPZ1qSRJrY7ySbJaW-XFzvJfLN1JSbQ7TxYYwFT=w240-h480-rw",
+        thumbnailUrl: "/images/thumbnails/vex4.jpg",
         gameUrl: "https://ubg365.github.io/vex4/",
         category: "Platform",
         isFeatured: false,
@@ -140,7 +140,7 @@ export class MemStorage implements IStorage {
       {
         title: "Shell Shockers",
         description: "Multiplayer FPS where you play as an egg with weapons. Crack your opponents before they crack you in this fast-paced shooter with unique egg-themed characters.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/RbV0RrxUBkVpR0-wyJaz_X3hV1ETLo-eDzZhIKQHFi5976Lo4C8vqsaturhYkHCFVmo",
+        thumbnailUrl: "/images/thumbnails/shell-shockers.jpg",
         gameUrl: "https://shellshock.io/",
         category: "Shooter",
         isFeatured: false,
@@ -150,7 +150,7 @@ export class MemStorage implements IStorage {
       {
         title: "Krunker.io",
         description: "Fast-paced first-person shooter with blocky graphics. Choose from various classes with unique weapons and abilities to dominate the battlefield.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/hwhyKRxbzJeJmUT3NM6MF4rnH84CkGzXpxBxCHaPW2j_G9RUl3v39zO0j1URfX2Hbw",
+        thumbnailUrl: "/images/thumbnails/krunker.jpg",
         gameUrl: "https://krunker.io/",
         category: "Shooter",
         isFeatured: false,
@@ -160,7 +160,7 @@ export class MemStorage implements IStorage {
       {
         title: "Age of War",
         description: "Strategy game where you evolve through different ages of history, from prehistoric to future. Defend your base, create units, and use special abilities to defeat your opponent.",
-        thumbnailUrl: "https://upload.wikimedia.org/wikipedia/ru/4/41/Age_of_War_logo.jpg",
+        thumbnailUrl: "/images/thumbnails/age-of-war.jpg",
         gameUrl: "https://www.crazygames.com/game/age-of-war",
         category: "Strategy",
         isFeatured: false,
