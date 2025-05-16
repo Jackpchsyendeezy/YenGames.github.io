@@ -19,147 +19,63 @@ export default function GameModal({ isOpen, onClose, game }: GameModalProps) {
       win.document.body.style.height = '100vh';
       win.document.title = game.title;
       
-      // Check if the game is a Flash game (SWF)
-      const isFlashGame = game.gameUrl.toLowerCase().includes('.swf');
-      
-      // Add content to blank page
-      if (isFlashGame) {
-        // For Flash games, use Ruffle to emulate
-        win.document.write(`
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>${game.title}</title>
-            <style>
-              body, html {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                background-color: #171923;
-                color: #E2E8F0;
-                font-family: 'Inter', sans-serif;
-              }
-              .game-container {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-              }
-              .game-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.5rem 1rem;
-                background-color: #2D3748;
-                border-bottom: 1px solid #4A5568;
-              }
-              .game-title {
-                font-weight: bold;
-                font-size: 1.25rem;
-                margin: 0;
-                color: #FF5722;
-              }
-              .game-frame {
-                flex: 1;
-                border: none;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              }
-              #ruffle-player {
-                width: 100%;
-                height: 100%;
-              }
-            </style>
-            <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-          </head>
-          <body>
-            <div class="game-container">
-              <div class="game-header">
-                <h1 class="game-title">${game.title}</h1>
-              </div>
-              <div class="game-frame">
-                <div id="ruffle-player"></div>
-              </div>
+      // For non-SWF games, use iframe to embed the game
+      win.document.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>${game.title}</title>
+          <style>
+            body, html {
+              margin: 0;
+              padding: 0;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+              background-color: #171923;
+              color: #E2E8F0;
+              font-family: 'Inter', sans-serif;
+            }
+            .game-container {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+            }
+            .game-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0.5rem 1rem;
+              background-color: #2D3748;
+              border-bottom: 1px solid #4A5568;
+            }
+            .game-title {
+              font-weight: bold;
+              font-size: 1.25rem;
+              margin: 0;
+              color: #FF5722;
+            }
+            .game-frame {
+              flex: 1;
+              border: none;
+              width: 100%;
+              height: 100%;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="game-container">
+            <div class="game-header">
+              <h1 class="game-title">${game.title}</h1>
             </div>
-            <script>
-              window.RufflePlayer = window.RufflePlayer || {};
-              window.addEventListener("load", (event) => {
-                const ruffle = window.RufflePlayer.newest();
-                const player = ruffle.createPlayer();
-                const container = document.getElementById("ruffle-player");
-                container.appendChild(player);
-                player.load("${game.gameUrl}");
-              });
-            </script>
-          </body>
-          </html>
-        `);
-      } else {
-        // For standard web games, use iframe
-        win.document.write(`
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>${game.title}</title>
-            <style>
-              body, html {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                background-color: #171923;
-                color: #E2E8F0;
-                font-family: 'Inter', sans-serif;
-              }
-              .game-container {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-              }
-              .game-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.5rem 1rem;
-                background-color: #2D3748;
-                border-bottom: 1px solid #4A5568;
-              }
-              .game-title {
-                font-weight: bold;
-                font-size: 1.25rem;
-                margin: 0;
-                color: #FF5722;
-              }
-              .game-frame {
-                flex: 1;
-                border: none;
-                width: 100%;
-                height: 100%;
-              }
-            </style>
-          </head>
-          <body>
-            <div class="game-container">
-              <div class="game-header">
-                <h1 class="game-title">${game.title}</h1>
-              </div>
-              <iframe class="game-frame" src="${game.gameUrl}" allowfullscreen></iframe>
-            </div>
-          </body>
-          </html>
-        `);
-      }
+            <iframe class="game-frame" src="${game.gameUrl}" allowfullscreen></iframe>
+          </div>
+        </body>
+        </html>
+      `);
       
       // Close the document to prevent further writing
       win.document.close();

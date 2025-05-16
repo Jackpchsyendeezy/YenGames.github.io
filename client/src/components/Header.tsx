@@ -13,17 +13,15 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo section */}
-          <Link href="/">
-            <a className="flex items-center space-x-2">
-              <svg className="h-10 w-10 rounded-full bg-accent text-white p-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17 10C17 11.1 16.1 12 15 12C13.9 12 13 11.1 13 10C13 8.9 13.9 8 15 8C16.1 8 17 8.9 17 10Z" fill="currentColor"/>
-                <path d="M11 10C11 11.1 10.1 12 9 12C7.9 12 7 11.1 7 10C7 8.9 7.9 8 9 8C10.1 8 11 8.9 11 10Z" fill="currentColor"/>
-                <path d="M7.05 16.87C7.64 16.34 8.35 16 9.14 16H14.86C15.65 16 16.36 16.34 16.95 16.87L20 19.5V4C20 2.9 19.1 2 18 2H6C4.9 2 4 2.9 4 4V19.5L7.05 16.87Z" fill="currentColor"/>
-                <path d="M18 22H6C4.9 22 4 21.1 4 20V19.5L7.05 16.87C7.64 16.34 8.35 16 9.14 16H14.86C15.65 16 16.36 16.34 16.95 16.87L20 19.5V20C20 21.1 19.1 22 18 22Z" fill="currentColor"/>
-              </svg>
-              <span className="font-poppins font-bold text-2xl text-white">Yendes<span className="text-accent">Games</span></span>
-            </a>
-          </Link>
+          <div className="flex items-center space-x-2 cursor-pointer" onClick={() => window.location.href = "/"}>
+            <svg className="h-10 w-10 rounded-full bg-accent text-white p-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 10C17 11.1 16.1 12 15 12C13.9 12 13 11.1 13 10C13 8.9 13.9 8 15 8C16.1 8 17 8.9 17 10Z" fill="currentColor"/>
+              <path d="M11 10C11 11.1 10.1 12 9 12C7.9 12 7 11.1 7 10C7 8.9 7.9 8 9 8C10.1 8 11 8.9 11 10Z" fill="currentColor"/>
+              <path d="M7.05 16.87C7.64 16.34 8.35 16 9.14 16H14.86C15.65 16 16.36 16.34 16.95 16.87L20 19.5V4C20 2.9 19.1 2 18 2H6C4.9 2 4 2.9 4 4V19.5L7.05 16.87Z" fill="currentColor"/>
+              <path d="M18 22H6C4.9 22 4 21.1 4 20V19.5L7.05 16.87C7.64 16.34 8.35 16 9.14 16H14.86C15.65 16 16.36 16.34 16.95 16.87L20 19.5V20C20 21.1 19.1 22 18 22Z" fill="currentColor"/>
+            </svg>
+            <span className="font-poppins font-bold text-2xl text-white">Yendes<span className="text-accent">Games</span></span>
+          </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
