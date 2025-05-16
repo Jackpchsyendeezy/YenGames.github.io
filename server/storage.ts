@@ -70,8 +70,8 @@ export class MemStorage implements IStorage {
       {
         title: "Burrito Bison: Launcha Libre",
         description: "Launch your luchador into a world of gummy bears in this addictive game. Smash through gummy bears, earn upgrades, and bounce your way to freedom in this wildly popular action game.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/ixHOGAQw8AReN5QKk4xdEDwYvHFp6MAKwZMurELPzTd7LVfgKvpB5wfmyZEb9YQkdnM=w240-h480-rw",
-        gameUrl: "https://funhtml5games.com/burritobison/index.html",
+        thumbnailUrl: "/images/thumbnails/burrito-bison.jpg",
+        gameUrl: "/games/swf/burrito-bison.swf",
         category: "Action",
         isFeatured: true,
         popular: true,
@@ -80,8 +80,8 @@ export class MemStorage implements IStorage {
       {
         title: "Bloons Tower Defense 5",
         description: "Strategic tower defense game where you deploy monkey towers to pop balloons before they escape. With numerous tower types, upgrades, and special abilities, this classic remains a fan favorite.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/YU2S8MXZ-Hzut_SnXLWzFRsD-5xo1kxN9xjNmYNvJIQqcwJ1HNPe_cEj1Sk9MgQ-FQ=w240-h480-rw",
-        gameUrl: "https://ubicast.com/projects/Bloons/BTD5/",
+        thumbnailUrl: "/images/thumbnails/btd5.jpg",
+        gameUrl: "/games/swf/btd5.swf",
         category: "Tower Defense",
         isFeatured: true,
         popular: true,
@@ -90,8 +90,8 @@ export class MemStorage implements IStorage {
       {
         title: "Happy Wheels",
         description: "Navigate through deadly obstacle courses with ragdoll physics in this cult classic game. Choose from various characters with unique vehicles and try to reach the finish line.",
-        thumbnailUrl: "https://play-lh.googleusercontent.com/SChpD4y61a3Ne6QCH8J-pLcB1D9GTfKI168lGzP8PgwL96M1zMmLQVzY86U7CExXRA=w240-h480-rw",
-        gameUrl: "https://happywheels2.io/",
+        thumbnailUrl: "/images/thumbnails/happy-wheels.jpg",
+        gameUrl: "/games/swf/happy-wheels.swf",
         category: "Action",
         isFeatured: true,
         popular: true,

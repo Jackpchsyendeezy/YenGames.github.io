@@ -2,8 +2,13 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { z } from "zod";
+import path from "path";
+import express from "express";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve static game files (SWF files)
+  app.use('/games', express.static(path.join(process.cwd(), 'public', 'games')));
+  
   // API endpoints that don't use `:id` params should be defined first
 
   // Get all categories
