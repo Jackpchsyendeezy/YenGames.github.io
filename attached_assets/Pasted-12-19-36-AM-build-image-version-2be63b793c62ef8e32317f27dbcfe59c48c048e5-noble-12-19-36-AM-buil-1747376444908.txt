@@ -1,0 +1,124 @@
+12:19:36 AM: build-image version: 2be63b793c62ef8e32317f27dbcfe59c48c048e5 (noble)
+12:19:36 AM: buildbot version: 91cc4f998569cea05e76ddf293285a8103fcb504
+12:19:37 AM: Fetching cached dependencies
+12:19:37 AM: Starting to download cache of 361.1MB
+12:19:39 AM: Finished downloading cache in 2.04s
+12:19:39 AM: Starting to extract cache
+12:19:42 AM: Finished extracting cache in 3.891s
+12:19:43 AM: Finished fetching cache in 5.997s
+12:19:43 AM: Starting to prepare the repo for build
+12:19:43 AM: Preparing Git Reference refs/heads/main
+12:19:44 AM: Custom functions path detected. Proceeding with the specified path: 'netlify/functions'
+12:19:45 AM: Starting to install dependencies
+12:19:45 AM: Started restoring cached python cache
+12:19:45 AM: Finished restoring cached python cache
+12:19:45 AM: Python version set to 3.13.3
+12:19:45 AM: Started restoring cached ruby cache
+12:19:46 AM: Finished restoring cached ruby cache
+12:19:46 AM: Ruby version set to 3.4.3
+12:19:46 AM: Started restoring cached go cache
+12:19:47 AM: Finished restoring cached go cache
+12:19:47 AM: Go version set to 1.24.3
+12:19:48 AM: Using PHP version 8.3
+12:19:49 AM: Started restoring cached Node.js version
+12:19:49 AM: Finished restoring cached Node.js version
+12:19:50 AM: v22.15.1 is already installed.
+12:19:50 AM: Now using node v22.15.1 (npm v10.9.2)
+12:19:50 AM: Enabling Node.js Corepack
+12:19:50 AM: Started restoring cached build plugins
+12:19:50 AM: Finished restoring cached build plugins
+12:19:50 AM: Started restoring cached corepack dependencies
+12:19:50 AM: Finished restoring cached corepack dependencies
+12:19:50 AM: No npm workspaces detected
+12:19:50 AM: Started restoring cached node modules
+12:19:50 AM: Finished restoring cached node modules
+12:19:50 AM: Installing npm packages using npm version 10.9.2
+12:19:51 AM: up to date in 609ms
+12:19:51 AM: npm packages installed
+12:19:51 AM: Successfully installed dependencies
+12:19:51 AM: Starting build script
+12:19:52 AM: Detected 1 framework(s)
+12:19:52 AM: "vite" at version "5.4.14"
+12:19:52 AM: Section completed: initializing
+12:19:54 AM: ​
+12:19:54 AM: Netlify Build                                                 
+12:19:54 AM: ────────────────────────────────────────────────────────────────
+12:19:54 AM: ​
+12:19:54 AM: ❯ Version
+12:19:54 AM:   @netlify/build 33.0.0
+12:19:54 AM: ​
+12:19:54 AM: ❯ Flags
+12:19:54 AM:   accountId: 6826cf867a782fbceaa3a235
+12:19:54 AM:   baseRelDir: true
+12:19:54 AM:   buildId: 6826d8d86c41e20008b18e1e
+12:19:54 AM:   deployId: 6826d8d86c41e20008b18e20
+12:19:54 AM: ​
+12:19:54 AM: ❯ Current directory
+12:19:54 AM:   /opt/build/repo
+12:19:54 AM: ​
+12:19:54 AM: ❯ Config file
+12:19:54 AM:   /opt/build/repo/netlify.toml
+12:19:54 AM: ​
+12:19:54 AM: ❯ Context
+12:19:54 AM:   production
+12:19:54 AM: ​
+12:19:54 AM: build.command from netlify.toml                               
+12:19:54 AM: ────────────────────────────────────────────────────────────────
+12:19:54 AM: ​
+12:19:54 AM: $ npm run build
+12:19:54 AM: > rest-express@1.0.0 build
+12:19:54 AM: > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+12:19:54 AM: vite v5.4.14 building for production...
+12:19:54 AM: transforming...
+12:19:54 AM: ✓ 2 modules transformed.
+12:19:54 AM: x Build failed in 231ms
+12:19:54 AM: error during build:
+12:19:54 AM: [vite]: Rollup failed to resolve import "/src/main.tsx" from "/opt/build/repo/index.html".
+12:19:54 AM: This is most likely unintended because it can break your application at runtime.
+12:19:54 AM: If you do want to externalize this module explicitly add it to
+12:19:54 AM: `build.rollupOptions.external`
+12:19:54 AM:     at viteWarn (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65747:17)
+12:19:54 AM:     at onwarn (file:///opt/build/repo/node_modules/@vitejs/plugin-react/dist/index.mjs:280:9)
+12:19:54 AM:     at onRollupWarning (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65777:5)
+12:19:54 AM:     at onwarn (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65442:7)
+12:19:54 AM:     at file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:19452:13
+12:19:54 AM:     at Object.logger [as onLog] (file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:21178:9)
+12:19:54 AM:     at ModuleLoader.handleInvalidResolvedId (file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20067:26)
+12:19:54 AM:     at file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20025:26
+12:19:54 AM: ​
+12:19:54 AM: "build.command" failed                                        
+12:19:54 AM: ────────────────────────────────────────────────────────────────
+12:19:54 AM: ​
+12:19:54 AM:   Error message
+12:19:54 AM:   Command failed with exit code 1: npm run build (https://ntl.fyi/exit-code-1)
+12:19:54 AM: ​
+12:19:54 AM:   Error location
+12:19:54 AM:   In build.command from netlify.toml:
+12:19:54 AM:   npm run build
+12:19:54 AM: ​
+12:19:54 AM:   Resolved config
+12:19:54 AM:   build:
+12:19:54 AM:     command: npm run build
+12:19:54 AM:     commandOrigin: config
+12:19:54 AM:     publish: /opt/build/repo/dist/public
+12:19:54 AM:     publishOrigin: config
+12:19:54 AM:   functionsDirectory: /opt/build/repo/netlify/functions
+12:19:54 AM:   headers:
+12:19:55 AM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+12:19:55 AM:     - for: /*
+      values:
+        Access-Control-Allow-Origin: '*'
+  headersOrigin: config
+  redirects:
+    - force: true
+      from: /api/*
+      status: 200
+      to: /.netlify/functions/:splat
+    - force: true
+      from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+12:19:55 AM: Build failed due to a user error: Build script returned non-zero exit code: 2
+12:19:55 AM: Failing build: Failed to build site
+12:19:55 AM: Finished processing build request in 18.757s
