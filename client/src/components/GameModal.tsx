@@ -1,4 +1,3 @@
-import { useState } from "react";
 import type { Game } from "@shared/schema";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
@@ -10,169 +9,86 @@ interface GameModalProps {
 
 export default function GameModal({ isOpen, onClose, game }: GameModalProps) {
   const handleLaunchGame = () => {
-    // Create a new blank tab
     const win = window.open("about:blank");
-    
-    if (win) {
-      // Set up the blank document
-      win.document.body.style.margin = '0';
-      win.document.body.style.height = '100vh';
-      win.document.title = game.title;
-      
-      // Check if the game is a Flash game (SWF)
-      const isFlashGame = game.gameUrl.toLowerCase().endsWith('.swf');
-      
-      if (isFlashGame) {
-        // For Flash games, use Ruffle to emulate
-        win.document.write(`
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>${game.title}</title>
-            <style>
-              body, html {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                background-color: #171923;
-                color: #E2E8F0;
-                font-family: 'Inter', sans-serif;
-              }
-              .game-container {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-              }
-              .game-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.5rem 1rem;
-                background-color: #2D3748;
-                border-bottom: 1px solid #4A5568;
-              }
-              .game-title {
-                font-weight: bold;
-                font-size: 1.25rem;
-                margin: 0;
-                color: #FF5722;
-              }
-              .game-frame {
-                flex: 1;
-                border: none;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              }
-              #ruffle-player {
-                width: 100%;
-                height: 100%;
-              }
-            </style>
-            <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-          </head>
-          <body>
-            <div class="game-container">
-              <div class="game-header">
-                <h1 class="game-title">${game.title}</h1>
-              </div>
-              <div class="game-frame">
-                <div id="ruffle-player"></div>
-              </div>
-            </div>
-            <script>
-              window.RufflePlayer = window.RufflePlayer || {};
-              window.addEventListener("load", (event) => {
-                const ruffle = window.RufflePlayer.newest();
-                const player = ruffle.createPlayer();
-                const container = document.getElementById("ruffle-player");
-                container.appendChild(player);
-                player.load("${window.location.origin}${game.gameUrl}");
-              });
-            </script>
-          </body>
-          </html>
-        `);
-      } else {
-        // For standard web games, use iframe
-        win.document.write(`
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>${game.title}</title>
-            <style>
-              body, html {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                background-color: #171923;
-                color: #E2E8F0;
-                font-family: 'Inter', sans-serif;
-              }
-              .game-container {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-              }
-              .game-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.5rem 1rem;
-                background-color: #2D3748;
-                border-bottom: 1px solid #4A5568;
-              }
-              .game-title {
-                font-weight: bold;
-                font-size: 1.25rem;
-                margin: 0;
-                color: #FF5722;
-              }
-              .game-frame {
-                flex: 1;
-                border: none;
-                width: 100%;
-                height: 100%;
-              }
-            </style>
-          </head>
-          <body>
-            <div class="game-container">
-              <div class="game-header">
-                <h1 class="game-title">${game.title}</h1>
-              </div>
-              <iframe class="game-frame" src="${game.gameUrl}" allowfullscreen></iframe>
-            </div>
-          </body>
-          </html>
-        `);
-      }
-      
-      // Close the document to prevent further writing
-      win.document.close();
-      
-      // Set up interval to check if window is closed
-      const interval = setInterval(() => {
-        if (win.closed) {
-          clearInterval(interval);
-        }
-      }, 500);
-    } else {
-      alert("Please allow popups for this site to play games");
+
+    if (!win) {
+      alert("Please allow popups for this site to play games.");
+      return;
     }
-    
+
+    const isFlashGame = game.gameUrl.toLowerCase().endsWith(".swf");
+
+    const html = isFlashGame
+      ? `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>${game.title}</title>
+        <style>
+          html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #000;
+          }
+          #ruffle-player {
+            width: 100%;
+            height: 100%;
+          }
+        </style>
+        <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+      </head>
+      <body>
+        <div id="ruffle-player"></div>
+        <script>
+          window.RufflePlayer = window.RufflePlayer || {};
+          window.addEventListener("load", () => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            player.allowFullscreen = true;
+            player.style.width = "100%";
+            player.style.height = "100%";
+            document.getElementById("ruffle-player").appendChild(player);
+            player.load("${window.location.origin}${game.gameUrl}");
+          });
+        </script>
+      </body>
+      </html>`
+      : `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>${game.title}</title>
+        <style>
+          html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #000;
+          }
+          iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+          }
+        </style>
+      </head>
+      <body>
+        <iframe src="${game.gameUrl}" allowfullscreen></iframe>
+      </body>
+      </html>`;
+
+    win.document.write(html);
+    win.document.close();
+
     onClose();
   };
 
@@ -183,30 +99,28 @@ export default function GameModal({ isOpen, onClose, game }: GameModalProps) {
       <DialogContent className="bg-secondary text-foreground max-w-4xl">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold font-poppins text-white">{game.title}</DialogTitle>
-          <DialogDescription className="text-muted-foreground">
-            {game.description}
-          </DialogDescription>
+          <DialogDescription className="text-muted-foreground">{game.description}</DialogDescription>
         </DialogHeader>
-        
+
         <div className="bg-gray-900 rounded-lg w-full aspect-video flex items-center justify-center mb-4">
-          <img 
-            src={game.thumbnailUrl} 
+          <img
+            src={game.thumbnailUrl}
             alt={game.title}
             className="h-full object-contain rounded-lg"
           />
         </div>
-        
+
         <div className="flex justify-between">
-          <button 
+          <button
             onClick={handleLaunchGame}
             className="px-6 py-3 bg-accent hover:bg-opacity-80 transition rounded-lg font-medium"
           >
-            Launch Game 
+            Launch Game
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline ml-2" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </button>
-          
+
           <div className="flex space-x-2">
             <button className="px-3 py-2 bg-gray-700 hover:bg-gray-600 transition rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
