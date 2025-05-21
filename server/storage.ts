@@ -166,6 +166,17 @@ export class MemStorage implements IStorage {
         isNew: false,
       },
       {
+        title: "Among us",
+        description:
+          "sus.",
+        thumbnailUrl: "",
+        gameUrl: " https://coolubg.github.io/coolubg-list/among-us-online-scratch/",
+        category: "Arcade",
+        isFeatured: false,
+        popular: true,
+        isNew: false,
+      },
+      {
         title: "Break The Bank",
         description:
           "A game in the henry stickmin series.",
