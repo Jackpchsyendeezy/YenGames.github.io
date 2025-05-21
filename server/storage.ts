@@ -133,6 +133,61 @@ export class MemStorage implements IStorage {
         isNew: false,
       },
       {
+        title: "hobo 1",
+        description:
+          "Go on a kill spree as a disgusting hobo",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/hobo1.swf",
+        category: "Arcade",
+        isFeatured: false,
+        popular: true,
+        isNew: false,
+      },
+      {
+        title: "Escape The Prison",
+        description:
+          "A game in the henry stickmin series.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/escapetheprison.swf",
+        category: "Arcade",
+        isFeatured: false,
+        popular: true,
+        isNew: false,
+      },
+      {
+        title: "Flee The Complex",
+        description:
+          "A game in the henry stickmin series.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/fleethecomplex.swf",
+        category: "Arcade",
+        isFeatured: false,
+        popular: true,
+        isNew: false,
+      },
+      {
+        title: "Break The Bank",
+        description:
+          "A game in the henry stickmin series.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/breakthebank.swf",
+        category: "Arcade",
+        isFeatured: false,
+        popular: true,
+        isNew: false,
+      },
+      {
+        title: "Papers, Please",
+        description:
+          "Papers, Please is a puzzle simulation game where the player is an immigration inspector in a fictional communist country.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/PapersPlease2.swf",
+        category: "Arcade",
+        isFeatured: false,
+        popular: true,
+        isNew: false,
+      },
+      {
         title: "Shell Shockers",
         description:
           "Multiplayer FPS where you play as an egg with weapons. Crack your opponents before they crack you in this fast-paced shooter with unique egg-themed characters.",
