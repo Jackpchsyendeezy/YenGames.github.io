@@ -122,6 +122,105 @@ export class MemStorage implements IStorage {
         isNew: false,
       },
       {
+        title: "Papa's Scooperia",
+        description:
+          "Serve delicious ice cream sundaes and other treats in this fun restaurant management game. Customize your shop and serve customers to earn tips and upgrades.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/papasscooperia_v102.swf",
+        category: "Simulation",
+        isFeatured: true,
+        popular: true,
+        isNew: true,
+      },
+      {
+        title: "Papa's Pastaria",
+        description:
+          "Manage your own pasta restaurant, serving up delicious dishes to hungry customers. Customize your pasta and sauces to create the perfect meal.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/papaspastaria.swf",
+        category: "Simulation",
+        isFeatured: false,
+        popular: true,
+        isNew: true,
+      },
+      {
+        title: "Papa's Pancakeria",
+        description:
+          "Flip pancakes and serve breakfast to your customers in this fun cooking game. Create delicious stacks of pancakes with various toppings.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/papaspancakeria.swf",
+        category: "Simulation",
+        isFeatured: false,
+        popular: true,
+        isNew: true,
+      },
+      {
+        title: "Papa's Hot Doggeria",
+        description:
+          "Run your own hot dog stand and serve customers with tasty hot dogs and toppings. Keep your customers happy to earn tips and upgrades.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/papashotdoggeria.swf",
+        category: "Simulation",
+        isFeatured: false,
+        popular: true,
+        isNew: true,
+      },
+      {
+        title: "Papa's Freezeria",
+        description:
+          "Create delicious frozen treats in this fun restaurant management game. Mix and match flavors to satisfy your customers' cravings.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/papasfreezeria.swf",
+        category: "Simulation",
+        isFeatured: false,
+        popular: true,
+        isNew: true,
+      },
+      {
+        title: "Papa's Donuteria",
+        description:
+          "Make and serve delicious donuts in this fun cooking game. Customize your donuts with various toppings and fillings to delight your customers.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/papasdonuteria.swf",
+        category: "Simulation",
+        isFeatured: false,
+        popular: true,
+        isNew: true,
+      },
+      {
+        title: "Papa's Cupcakeria",
+        description:
+          "Bake and decorate cupcakes in this fun restaurant management game. Create unique cupcake designs to impress your customers.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/papascupcakeria.swf",
+        category: "Simulation",
+        isFeatured: false,
+        popular: true,
+        isNew: true,
+      },
+      {
+        title: "Papa's Burgeria",
+        description:
+          "Manage your own burger restaurant, serving up delicious burgers and sides to hungry customers. Customize your burgers to create the perfect meal.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/papasburgeria.swf",
+        category: "Simulation",
+        isFeatured: false,
+        popular: true,
+        isNew: true,
+      },
+      {
+        title: "Papa's Bakeria",
+        description:
+          "Bake and serve delicious pastries in this fun cooking game. Create a variety of baked goods to satisfy your customers' sweet tooth.",
+        thumbnailUrl: "",
+        gameUrl: "/games/swf/papasbakeria.swf",
+        category: "Simulation",
+        isFeatured: false,
+        popular: true,
+        isNew: true,
+      },
+      {
         title: "Slope",
         description:
           "Guide a ball down a randomized slope in this fast-paced endless runner. Test your reflexes as you navigate increasingly difficult terrain and avoid obstacles.",
